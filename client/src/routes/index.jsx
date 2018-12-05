@@ -1,13 +1,18 @@
 import Components from "views/Components/Components.jsx";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
-import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
-import LoginPage from "views/LoginPage/LoginPage.jsx";
+import RegisterPage from "views/RegisterPage/RegisterPage.jsx";
+import DashboardPage from "views/DashboardPage/DashboardPage.jsx";
+import LoginPage from "../views/LoginPage/LoginPage";
+import ForgotPassword from "../views/ForgotPassword/ForgotPassword";
+
 
 var indexRoutes = [
-  { path: "/landing-page", name: "LandingPage", component: LandingPage },
-  { path: "/profile-page", name: "ProfilePage", component: ProfilePage },
-  { path: "/login-page", name: "LoginPage", component: LoginPage },
-  { path: "/", name: "Components", component: Components }
+  { path: "/", name: "LandingPage", component: LandingPage },
+  { path: "/dashboard", name: "DashboardPage", component: DashboardPage },
+  { path: "/register", name: "Register", component: RegisterPage },
+  { path: "/forgot-password", name: "ForgotPass", component: ForgotPassword },
+  { path: "/login", name: "LoginPage", component: LoginPage },
+  { path: "/components", name: "Components", component: Components }
 ];
 
 export default indexRoutes;

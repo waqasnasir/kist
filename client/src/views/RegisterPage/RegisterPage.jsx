@@ -23,7 +23,7 @@ import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 import image from "assets/img/bg7.jpg";
 
-class LoginPage extends React.Component {
+class RegisterPage extends React.Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
@@ -65,7 +65,7 @@ class LoginPage extends React.Component {
                 <Card className={classes[this.state.cardAnimaton]}>
                   <form className={classes.form}>
                     <CardHeader color="primary" className={classes.cardHeader}>
-                      <h4>Login</h4>
+                      <h4>Register</h4>
                       <div className={classes.socialLine}>
                         <Button
                           justIcon
@@ -96,8 +96,23 @@ class LoginPage extends React.Component {
                         </Button>
                       </div>
                     </CardHeader>
-                    <p className={classes.divider}>Or <a href="/register">Register Here</a></p>
+                    <p className={classes.divider}>Or <a href="/login">Go to Login</a></p>
                     <CardBody>
+                      <CustomInput
+                        labelText="User Name..."
+                        id="first"
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                        inputProps={{
+                          type: "text",
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <People className={classes.inputIconsColor} />
+                            </InputAdornment>
+                          )
+                        }}
+                      />
                       <CustomInput
                         labelText="Email..."
                         id="email"
@@ -130,11 +145,10 @@ class LoginPage extends React.Component {
                           )
                         }}
                       />
-                      <a href="/forgot-password" className={classes.forgotPass}>Forgot Password?</a>
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg">
-                        Log In
+                        Register
                       </Button>
                     </CardFooter>
                   </form>
@@ -149,4 +163,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default withStyles(loginPageStyle)(LoginPage);
+export default withStyles(loginPageStyle)(RegisterPage);
