@@ -34,6 +34,7 @@ import work4 from "assets/img/examples/mariya-georgieva.jpg";
 import work5 from "assets/img/examples/clem-onojegaw.jpg";
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
+import Customers from "../../containers/Customers.jsx";
 
 class DashboardPage extends React.Component {
   render() {
@@ -126,23 +127,7 @@ class DashboardPage extends React.Component {
                         tabButton: "Schedule",
                         tabIcon: Schedule,
                         tabContent: (
-                          <span>
-                            <p>
-                              Efficiently unleash cross-media information without
-                              cross-media value. Quickly maximize timely
-                              deliverables for real-time schemas.
-                          </p>
-                            <br />
-                            <p>
-                              Dramatically maintain clicks-and-mortar solutions
-                              without functional solutions. Dramatically visualize
-                              customer directed convergence without revolutionary
-                              ROI. Collaboratively administrate empowered markets
-                              via plug-and-play networks. Dynamically
-                              procrastinate B2C users after installed base
-                              benefits.
-                          </p>
-                          </span>
+                          <Customers/>
                         )
                       }
                     ]}
