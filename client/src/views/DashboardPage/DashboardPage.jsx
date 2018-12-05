@@ -49,12 +49,12 @@ class DashboardPage extends React.Component {
       <div>
         <Header
           // color="transparent"
-          brand="Material Kit React"
+          brand="Kist"
           rightLinks={<HeaderLinks />}
           fixed
           changeColorOnScroll={{
             height: 200,
-            color: "white"
+            color: "pirmary"
           }}
           {...rest}
         />

@@ -108,6 +108,17 @@ const headerLinksStyle = theme => ({
       padding: "10px 20px"
     }
   },
+  img: {
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%"
+  },
+  imageDropdownButton: {
+    padding: "0px",
+    top: "4px",
+    borderRadius: "50%",
+    marginLeft: "5px"
+  },
   ...tooltip,
   marginRight5: {
     marginRight: "5px"

@@ -21,6 +21,7 @@ import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.js
 import ProductSection from "./Sections/ProductSection.jsx";
 import TeamSection from "./Sections/TeamSection.jsx";
 import WorkSection from "./Sections/WorkSection.jsx";
+import LandingHeaderLinks from "../../components/Header/LandingHeaderLinks.jsx";
 
 const dashboardRoutes = [];
 
@@ -33,7 +34,7 @@ class LandingPage extends React.Component {
           color="transparent"
           routes={dashboardRoutes}
           brand="Material Kit React"
-          rightLinks={<HeaderLinks />}
+          rightLinks={<LandingHeaderLinks />}
           fixed
           changeColorOnScroll={{
             height: 400,
