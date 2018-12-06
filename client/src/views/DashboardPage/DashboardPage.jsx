@@ -2,8 +2,12 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
+
+// core components
+import InfoArea from "components/InfoArea/InfoArea.jsx";
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
+import Timeline from "@material-ui/icons/Timeline";
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
@@ -16,6 +20,7 @@ import Button from "components/CustomButtons/Button.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
+
 import SectionPills from "../Components/Sections/SectionPills.jsx"
 import NavPills from "components/NavPills/NavPills.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
@@ -34,7 +39,11 @@ import work4 from "assets/img/examples/mariya-georgieva.jpg";
 import work5 from "assets/img/examples/clem-onojegaw.jpg";
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
+import { cardTitle } from "assets/jss/material-kit-react.jsx";
 import Customers from "../../containers/Customers.jsx";
+import StatsCard from "../CustomComponents/StatsCard.jsx";
+
+
 
 class DashboardPage extends React.Component {
   render() {
@@ -62,7 +71,7 @@ class DashboardPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>
             <div className={classes.container}>
-              <GridContainer justify="left">
+              <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={12} lg={12}>
                   <NavPills
                     color="rose"
@@ -75,29 +84,23 @@ class DashboardPage extends React.Component {
                         tabButton: "Dashboard",
                         tabIcon: Dashboard,
                         tabContent: (
-                          <span>
-                            <p>
-                              Collaboratively administrate empowered markets via
-                              plug-and-play networks. Dynamically procrastinate
-                              B2C users after installed base benefits.
-                          </p>
-                            <br />
-                            <p>
-                              Dramatically visualize customer directed convergence
-                              without revolutionary ROI. Collaboratively
-                              administrate empowered markets via plug-and-play
-                              networks. Dynamically procrastinate B2C users after
-                              installed base benefits.
-                          </p>
-                            <br />
-                            <p>
-                              Dramatically visualize customer directed convergence
-                              without revolutionary ROI. Collaboratively
-                              administrate empowered markets via plug-and-play
-                              networks. Dynamically procrastinate B2C users after
-                              installed base benefits.
-                          </p>
-                          </span>
+                          <GridContainer>
+                            <GridItem xs={10} sm={5} md={5} lg={4}>
+                            <StatsCard/>
+                            </GridItem>
+                            <GridItem xs={10} sm={5} md={5} lg={4}>
+                            <StatsCard/>
+                            </GridItem>
+                            <GridItem xs={10} sm={5} md={5} lg={4}>
+                            <StatsCard/>
+                            </GridItem>
+                            <GridItem xs={10} sm={5} md={5} lg={4}>
+                            <StatsCard/>
+                            </GridItem>
+                            <GridItem xs={10} sm={5} md={5} lg={3}>
+                            <StatsCard/>
+                            </GridItem>
+                          </GridContainer>
                         )
                       },
                       {
@@ -127,7 +130,7 @@ class DashboardPage extends React.Component {
                         tabButton: "Schedule",
                         tabIcon: Schedule,
                         tabContent: (
-                          <Customers/>
+                          <Customers />
                         )
                       }
                     ]}
@@ -143,4 +146,4 @@ class DashboardPage extends React.Component {
   }
 }
 
-export default withStyles(profilePageStyle)(DashboardPage);
+export default withStyles({...profilePageStyle, ...cardTitle})(DashboardPage);
