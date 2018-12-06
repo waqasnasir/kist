@@ -22,9 +22,8 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 import image from "assets/img/bg7.jpg";
-import LandingHeaderLinks from "../../components/Header/LandingHeaderLinks";
 
-class LoginPage extends React.Component {
+class ForgotPassword extends React.Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
@@ -49,7 +48,7 @@ class LoginPage extends React.Component {
           absolute
           color="transparent"
           brand="Material Kit React"
-          rightLinks={<LandingHeaderLinks />}
+          rightLinks={<HeaderLinks />}
           {...rest}
         />
         <div
@@ -66,38 +65,8 @@ class LoginPage extends React.Component {
                 <Card className={classes[this.state.cardAnimaton]}>
                   <form className={classes.form}>
                     <CardHeader color="primary" className={classes.cardHeader}>
-                      <h4>Login</h4>
-                      <div className={classes.socialLine}>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-twitter"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button>
-                      </div>
+                      <h4>Forgot Password</h4>
                     </CardHeader>
-                    <p className={classes.divider}>Or <a href="/register">Register Here</a></p>
                     <CardBody>
                       <CustomInput
                         labelText="Email..."
@@ -114,28 +83,10 @@ class LoginPage extends React.Component {
                           )
                         }}
                       />
-                      <CustomInput
-                        labelText="Password"
-                        id="pass"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "password",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Icon className={classes.inputIconsColor}>
-                                lock_outline
-                              </Icon>
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                      <a href="/forgot-password" className={classes.forgotPass}>Forgot Password?</a>
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg">
-                        Log In
+                        Send Link
                       </Button>
                     </CardFooter>
                   </form>
@@ -150,4 +101,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default withStyles(loginPageStyle)(LoginPage);
+export default withStyles(loginPageStyle)(ForgotPassword);

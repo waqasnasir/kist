@@ -1,12 +1,15 @@
 import { container } from "assets/jss/material-kit-react.jsx";
 
 const signupPageStyle = {
+  loginCard: {
+    marginBottom: "20px"
+  },
   container: {
     ...container,
     zIndex: "2",
     position: "relative",
     paddingTop: "20vh",
-    color: "#FFFFFF"
+    color: "#FFFFFF",
   },
   cardHidden: {
     opacity: "0",
@@ -84,6 +87,9 @@ const signupPageStyle = {
   },
   inputIconsColor: {
     color: "#495057"
+  },
+  forgotPass: {
+    fontSize: "smaller"
   }
 };
 
