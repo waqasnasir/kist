@@ -22,6 +22,7 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 import image from "assets/img/bg7.jpg";
+import LandingHeaderLinks from "../../components/Header/LandingHeaderLinks";
 
 class RegisterPage extends React.Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class RegisterPage extends React.Component {
           absolute
           color="transparent"
           brand="Material Kit React"
-          rightLinks={<HeaderLinks />}
+          rightLinks={<LandingHeaderLinks />}
           {...rest}
         />
         <div
