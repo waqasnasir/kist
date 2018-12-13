@@ -63,7 +63,7 @@ class DashboardPage extends React.Component {
           fixed
           changeColorOnScroll={{
             height: 200,
-            color: "pirmary"
+            color: "white"
           }}
           {...rest}
         />

@@ -16,7 +16,7 @@ import Menu from "@material-ui/icons/Menu";
 // core components
 import headerStyle from "assets/jss/material-kit-react/components/headerStyle.jsx";
 
-class Header extends React.Component {
+class LandingHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,8 +65,7 @@ class Header extends React.Component {
       leftLinks,
       brand,
       fixed,
-      absolute,
-      sidebarLinks
+      absolute
     } = this.props;
     const appBarClasses = classNames({
       [classes.appBar]: true,
@@ -101,21 +100,6 @@ class Header extends React.Component {
             </IconButton>
           </Hidden>
         </Toolbar>
-        <Hidden smDown implementation="css">
-          <Drawer
-            variant="persistent"
-            anchor={"right"}
-            open
-            // classes={{
-            //   paper: classes.drawerPaper
-            // }}
-            //onClose={this.handleDrawerToggle}
-          >
-            <div className={classes.appResponsive}>
-              {rightLinks}
-            </div>
-          </Drawer>
-        </Hidden>
         <Hidden mdUp implementation="css">
           <Drawer
             variant="temporary"
@@ -181,4 +165,4 @@ Header.propTypes = {
   })
 };
 
-export default withStyles(headerStyle)(Header);
+export default withStyles(headerStyle)(LandingHeader);
