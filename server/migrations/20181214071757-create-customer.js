@@ -1,28 +1,32 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Customers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
+      name: {
         type: Sequelize.STRING
       },
-      email: {
+      cnic: {
+        type: Sequelize.STRING,
+        unique:true
+      },
+      phone: {
         type: Sequelize.STRING
       },
-      password: {
+      address: {
         type: Sequelize.STRING
       },
-      status: {
-        type: Sequelize.ENUM('active', 'inactive'),
-        defaultValue: 'inactive'
-      },
-      temp_token: {
-        type:Sequelize.STRING
+      owner_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id"
+        }
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +39,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('Customers');
   }
 };

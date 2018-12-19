@@ -24,12 +24,14 @@ module.exports = (sequelize, Sequelize) => {
       defaultValue: 'inactive'
     },
     temp_token: {
-      type:Sequelize.STRING
+      type: Sequelize.STRING
     }
   })
 
   User.associate = function (models) {
     // associations can be defined here
+    User.hasMany(models.Customer, {foreignKey: 'owner_id'})
   };
+  
   return User;
 };

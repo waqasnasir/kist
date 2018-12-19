@@ -29,10 +29,5 @@ app.use(morgan('common', {
 }));
 app.use(morgan('dev'));
 
-// //error handler
-app.use(function (err, req, res) {
-  if (err.isBoom) {
-    return res.status(err.output.statusCode).json({ error: "validation", success: false, err });
-  }
-});
+
 module.exports = app

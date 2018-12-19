@@ -1,5 +1,7 @@
 import user from './user/user'
+import customer from './customer/customer'
 
 module.exports = {
-  userController:user
+  userController:user,
+  customerController:customer
 }

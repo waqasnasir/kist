@@ -32,7 +32,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    }, {timestamps:true});
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Users');
