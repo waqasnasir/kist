@@ -1,2 +1,10 @@
 ::ffff:127.0.0.1 - - [13/Dec/2018:11:45:08 +0000] "POST /api/user/signin HTTP/1.1" - -
 ::1 - - [17/Dec/2018:08:40:07 +0000] "POST /customers HTTP/1.1" 404 149
+::1 - - [25/Dec/2018:19:09:05 +0000] "PUT /deal/1/installment%20/3?amount=3000 HTTP/1.1" 404 162
+::1 - - [25/Dec/2018:19:09:33 +0000] "PUT /installment%20/3?amount=3000 HTTP/1.1" 404 155
+::1 - - [25/Dec/2018:19:10:13 +0000] "PUT /installment%20/3 HTTP/1.1" 404 155
+::1 - - [25/Dec/2018:19:10:32 +0000] "PUT /installment%20/3 HTTP/1.1" 404 155
+::1 - - [25/Dec/2018:19:11:37 +0000] "PUT /installment%20/3 HTTP/1.1" 404 155
+::1 - - [25/Dec/2018:19:13:15 +0000] "PUT /installment HTTP/1.1" 404 150
+::1 - - [25/Dec/2018:19:13:47 +0000] "PUT /installment HTTP/1.1" 404 150
+::1 - - [25/Dec/2018:19:13:53 +0000] "PUT /test HTTP/1.1" 404 143
