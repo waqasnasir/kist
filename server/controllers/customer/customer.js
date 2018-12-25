@@ -21,7 +21,7 @@ module.exports = {
             owner_id: req.userId
         }
         try {
-            const existingCustomer = await Customer.findOne({ where: { [Op.or]: [{ phone }, { cnic }] }, attributes: ['cnic'] })
+            const existingCustomer = await Customer.findOne({ where: { [Op.or]: [{ phone }, { cnic }], owner_id: req.userId }, attributes: ['cnic'] })
             if (existingCustomer) return res.status(200).send({ success: false, message: "Customer with same phone number or cnic already exist" })
             const newCustomer = await Customer.create(customer)
             if (!newCustomer) return res.status(200).send({ success: false, message: "could not add customer" })

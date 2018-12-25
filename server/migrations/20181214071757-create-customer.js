@@ -13,7 +13,7 @@ module.exports = {
       },
       cnic: {
         type: Sequelize.STRING,
-        unique:true
+        unique:'compositeIndex'
       },
       phone: {
         type: Sequelize.STRING
@@ -26,7 +26,8 @@ module.exports = {
         references: {
           model: "Users",
           key: "id"
-        }
+        },
+        unique:'compositeIndex'
       },
       createdAt: {
         allowNull: false,

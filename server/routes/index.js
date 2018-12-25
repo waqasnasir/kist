@@ -1,8 +1,10 @@
 import userRoutes from './user'
 import customerRoutes from './customer'
+import dealRoutes from './deal'
 module.exports = (app) => {
   userRoutes(app)
   customerRoutes(app)
+  dealRoutes(app)
   // After your routes add a standard express error handler. This will be passed the Joi
   // error, plus an extra "type" field so we can tell what type of validation failed
   // //error handler
