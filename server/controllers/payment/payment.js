@@ -1,4 +1,4 @@
-import { Installment } from '../../models'
+import { Installment, Customer, Deal } from '../../models'
 import Sequelize from 'sequelize'
 const Op = Sequelize.Op
 module.exports = {
@@ -15,14 +15,21 @@ module.exports = {
     },
     addInstallment: async (req, res) => {
         const dealId = req.params.id
-        const { amount, paid_at, customer_id} = req.body
+        const { amount, paid_at, customer_id } = req.body
+        const installment = {
+            amount,
+            paid_at,
+            customer_id,
+            deal_id: dealId
+        }
         try {
-            const installment = {
-                amount,
-                paid_at,
-                customer_id,
-                deal_id:dealId
-            }
+            // check if installment is against valid deal
+            const deal = await Deal.findOne({where:{id:dealId}})
+            if(!deal) return res.status(200).send({ success: false, message: "Deal not found" })
+            // check if installment is from a valid customer
+            const customer = await Customer.findOne({where:{id:customer_id}})
+            if(!customer) return res.status(200).send({ success: false, message: "Customer not found" })
+            // save the installment
             const newInstallment = await Installment.create(installment)
             if (!newInstallment) return res.status(200).send({ success: false, message: "could not add installment" })
             return res.status(200).send({ success: true, message: "installment has been added successfully", installment: newInstallment })
