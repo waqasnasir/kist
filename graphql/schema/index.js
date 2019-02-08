@@ -1,14 +1,15 @@
 const { gql } = require('apollo-server')
 
 export const typeDefs = gql`
-# all schame definations goes here. 
+# all schema definations goes here. 
     type Customer {
         id      : Int,
         name    : String,
         cnic    : String,
         phone   : String,
         address : String,
-        Owner   : User
+        Owner   : User,
+        deals   : [Deal]
     },
     type User {
         id          : Int,
@@ -16,10 +17,27 @@ export const typeDefs = gql`
         email       : String,
         password    : String,
         status      : String,
+        customers   : [Customer]
+        deals       : [Deal]
+    },
+    type Deal {
+        item                : String,
+        item_price          : Int,
+        item_description    : String,
+        amount              : Int,
+        monthly_installment : Int,
+        advance             : Int,
+        gaurantor_mbl       : String,
+        gaurantor_name      : String,
+        gaurantor_address   : String,
+        customer            : Customer,
+        owner               : User,
     },
 # all queries goes here
     type Query {
-        customers : [Customer], 
+        customers : {
+            [Customer]
+        }, 
     }
 
     # The mutation root type, used to define all mutations.

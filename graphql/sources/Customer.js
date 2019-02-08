@@ -17,7 +17,7 @@ class Customer extends RESTDataSource {
         request.headers.set('Authorization', this.context.token);
     }
 
-    async getCustomer() {
+    async getCustomers() {
         const data = await this.get('customers', {})
         if (!data.success) {
             throw new AuthenticationError('Token might not be valid', {
