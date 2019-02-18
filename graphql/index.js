@@ -1,7 +1,7 @@
 const { ApolloServer, gql, MockList } = require('apollo-server')
 import { typeDefs } from './schema/index'
 import { resolvers } from './resolvers'
-import {CustomerAPI} from './sources'
+import { CustomerAPI, UserAPI, DealAPI } from './sources'
 const getToken = (req) => {
     if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
         return req.headers.authorization.split(' ')[1];
@@ -11,16 +11,18 @@ const getToken = (req) => {
 }
 const server = new ApolloServer({
     typeDefs: typeDefs,
-   
+
     dataSources: () => {
         return {
             customerAPI: new CustomerAPI(),
+            userAPI: new UserAPI(),
+            dealAPI: new DealAPI()
         };
     },
-    context: ({req, res}) => ({
+    context: ({ req, res }) => ({
         // get the user token from the headers
-        token : getToken(req) || ''
-      }),
+        token: getToken(req) || ''
+    }),
     resolvers, formatError: error => {
         console.log(error);
         //return new Error('Internal server error');

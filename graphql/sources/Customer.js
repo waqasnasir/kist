@@ -1,13 +1,6 @@
-const { RESTDataSource } = require('apollo-datasource-rest')
-const { 
-    AuthenticationError, 
-  } = require('apollo-server');
-const customers = [
-    {
-        name: 'waqas',
-        cnic: 'test'
-    }
-]
+import { RESTDataSource } from 'apollo-datasource-rest';
+import { AuthenticationError } from 'apollo-server';
+
 class Customer extends RESTDataSource {
     constructor() {
         super();
@@ -19,6 +12,16 @@ class Customer extends RESTDataSource {
 
     async getCustomers() {
         const data = await this.get('customers', {})
+        if (!data.success) {
+            throw new AuthenticationError('Token might not be valid', {
+                error: data,
+            });
+        }
+        return data.data
+    }
+
+    async getUsers() {
+        const data = await this.get('users', {})
         if (!data.success) {
             throw new AuthenticationError('Token might not be valid', {
                 error: data,

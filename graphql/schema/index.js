@@ -35,9 +35,7 @@ export const typeDefs = gql`
     },
 # all queries goes here
     type Query {
-        customers : {
-            [Customer]
-        }, 
+        customers : [Customer], 
     }
 
     # The mutation root type, used to define all mutations.
