@@ -4,6 +4,7 @@ import userValidation from '../controllers/user/user.validation'
 import { verifyToken } from '../middleware/authenticate'
 module.exports = (app) => {
     app.get('/users',verifyToken, userController.getAllUsers)
+    app.get('/user/:id',verifyToken, userController.getUserById)
     app.get('/user/email-verification', userController.verify)
     app.get('/user/reset-password', userController.resetPassword)
     app.post('/user/signin', expressJoi(userValidation.signin), userController.signin)

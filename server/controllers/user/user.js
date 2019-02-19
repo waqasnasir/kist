@@ -10,8 +10,14 @@ import { JWT_SECRET } from '../../constants';
 module.exports = {
     getAllUsers: async (req, res) => {
         const users = await User.findAll()
-        if (users) return res.status(200).send({ users })
+        if (users) return res.status(200).send({ success: true, data: users })
         return res.status(500).send({ message: "internal database error" })
+    },
+    getUserById: async (req, res) => {
+        const id = req.params.id;
+        const user = await User.findOne({ where: { id } })
+        if (user) return res.status(200).send({ success: true, data: user })
+        return res.status(500).send({ success: true, message: "Could not find the user" })
     },
     signin: async (req, res) => {
         const { email, password } = req.body
@@ -44,18 +50,18 @@ module.exports = {
     },
     verify: async (req, res) => {
         const { link } = req.query
-        const user = await User.findOne({where:{temp_token:link}})
-        if(!user) return res.status(200).send({ success: false, message: "Your link has been expired" })
-        user.temp_token=null
-        user.status='active'
+        const user = await User.findOne({ where: { temp_token: link } })
+        if (!user) return res.status(200).send({ success: false, message: "Your link has been expired" })
+        user.temp_token = null
+        user.status = 'active'
         await user.save()
         return res.status(200).send({ success: true, message: "Your account has been verified" })
     },
     resetPassword: async (req, res) => {
-        const {reset_email }= req.query || req.body
-        const user = await User.findOne({where:{email:reset_email}})
-        if(!user) return res.status(200).send({ success: false, message: "Account does not exist with given email" })
-        user.temp_token=randomstring.generate(20)
+        const { reset_email } = req.query || req.body
+        const user = await User.findOne({ where: { email: reset_email } })
+        if (!user) return res.status(200).send({ success: false, message: "Account does not exist with given email" })
+        user.temp_token = randomstring.generate(20)
         await user.save()
         const template = await registerEmail(user.email, user.username, user.temp_token)
         console.log(template)

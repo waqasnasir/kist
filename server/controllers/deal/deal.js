@@ -11,6 +11,16 @@ module.exports = {
             return res.status(500).send({ success: false, message: "Internal Server error", error: error.errors.message.toString() })
         }
     },
+    getDealsByCustomerId: async (req, res) => {
+        try {
+            const customer_id = req.params.id;
+            const deals = await Deal.findAll({ where: { customer_id } })
+            return res.status(200).send({ success: true, data: deals })
+        } catch (error) {
+            console.log(error)
+            return res.status(500).send({ success: false, message: "Internal Server error", error: error.errors.message.toString() })
+        }
+    },
     addDeal: async (req, res) => {
         const { item='', item_price=0, total_price=0, advance=0, monthly_installment =0, item_description = '',gaurantor_mbl = '',gaurantor_name ='', gaurantor_address = '',customer_id } = req.body
         const deal = {
